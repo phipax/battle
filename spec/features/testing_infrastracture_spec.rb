@@ -5,10 +5,19 @@ feature 'Testing infrastructure' do
   end
 
   scenario 'Page fill in' do
-    visit('/')
-    fill_in 'player_1', with: "Sundar"
-    fill_in 'player_2', with: "Tom"
-    click_button 'Submit'
+    sign_in_and_play
     expect(page).to have_content 'Sundar vs Tom'
+  end
+end
+
+feature '# Player 2' do
+  scenario 'checking hit score' do
+    sign_in_and_play
+    expect(page).to have_content 'Tom: 60HP'
+  end
+  scenario 'Attack Player 2' do
+    sign_in_and_play
+    click_link 'Attack'
+    expect(page).to have_content 'Tom attacked Sundar'
   end
 end
