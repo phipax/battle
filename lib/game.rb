@@ -1,13 +1,12 @@
 class Game
 
-attr_reader :player_1, :player_2, :player_1_name, :player_2_name, :current_player
+attr_reader :player_1, :player_2, :current_player, :opponent_player
 
   def initialize(player_1, player_2)
-    @player_1 = player_1
-    @player_2 = player_2
-    @player_1_name = @player_1.name
-    @player_2_name = @player_2.name
-    @current_player = @player_1_name
+    # @player_1 = player_1
+    # @player_2 = player_2
+    @current_player = player_1
+    @opponent_player = player_2
   end
 
   def attack(player1)
@@ -15,7 +14,15 @@ attr_reader :player_1, :player_2, :player_1_name, :player_2_name, :current_playe
   end
 
   def swap
-    @current_player == @player_1_name ? @current_player = @player_2_name : @current_player = @player_1_name
+    opp = @opponent_player
+    @opponent_player = @current_player
+    @current_player = opp
   end
 
+  # private
+  #
+  # def opponent
+  #   curr = @current_player
+  #   opp = @opponent_player
+  # end
 end

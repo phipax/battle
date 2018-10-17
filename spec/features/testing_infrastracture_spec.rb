@@ -6,7 +6,7 @@ feature 'Testing infrastructure' do
 
   scenario 'Page fill in' do
     sign_in_and_play
-    expect(page).to have_content 'Sundar vs Tom'
+    expect(page).to have_title 'Sundar vs Tom'
   end
 end
 
