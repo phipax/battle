@@ -18,6 +18,6 @@ feature '# Player 2' do
   scenario 'Attack Player 2' do
     sign_in_and_play
     click_link 'Attack'
-    expect(page).to have_content 'Tom attacked Sundar'
+    expect(page).to have_content 'Sundar attacked Tom'
   end
 end
