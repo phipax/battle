@@ -33,5 +33,11 @@ class Battle < Sinatra::Base
     erb :attack
   end
 
+  get '/swap' do
+    @game = $game
+    @game.swap
+    redirect '/play'
+  end
+
   run! if app_file ==$0
 end

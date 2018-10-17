@@ -17,4 +17,11 @@ subject(:game) {Game.new(mit, dave)}
       expect(game.player_2_name).to eq dave.name
     end
   end
+
+  describe "swaps players" do
+    it 'expects to swap the player names' do
+      game.swap
+      expect(game.current_player).to eq game.player_2_name
+    end
+  end
 end
