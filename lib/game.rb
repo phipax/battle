@@ -1,6 +1,6 @@
 class Game
 
-attr_reader :player_1, :player_2, :current_player, :opponent_player
+attr_reader :current_player, :opponent_player, :loser
 
   def initialize(player_1, player_2)
     # @player_1 = player_1
@@ -19,6 +19,18 @@ attr_reader :player_1, :player_2, :current_player, :opponent_player
     @current_player = opp
   end
 
+ def winner?
+  # p "Current:: #{@current_player.name} #{@current_player.hit_points}"
+  # p "Opponent:: #{@opponent_player.name} #{@opponent_player.hit_points}"
+
+   if @current_player.hit_points == 0
+     @loser = @current_player.name
+     @opponent_player
+   elsif @opponent_player.hit_points == 0
+     @loser = @opponent_player.name
+     @current_player
+   end
+ end
   # private
   #
   # def opponent

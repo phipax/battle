@@ -1,3 +1,12 @@
 <%= @game.opponent_player.name %> attacked <%= @game.current_player.name %><p>
-<%= @game.current_player.name%>: <%= @game.current_player.hit_points%>HP<p>
+<table border="1">
+  <tr><td><b>Current</b></td><td><b>Opponent</b></td></tr>
+  <tr><td><%= @game.opponent_player.name%>: <%= @game.opponent_player.hit_points%>HP</td>
+  <td><%= @game.current_player.name%>: <%= @game.current_player.hit_points%>HP</td></tr>
+</table>
+
+<% if @game.winner? %>
+  <%= @game.winner?.name %> Wins! & <%= @game.loser %> lost!
+<% else %>
 <a href='/play'>Swap</a>
+<%end %>

@@ -1,7 +1,7 @@
 require './lib/game'
 describe Game do
- let(:mit) {double :mit, :name => "Mit", :receive_damage => 50}
- let(:dave) {double :dave, :name => "Dave"}
+ let(:mit) {double :mit, :name => "Mit", :receive_damage => 50, :hit_points => 50}
+ let(:dave) {double :dave, :name => "Dave", :receive_damage => 0, :hit_points => 0}
 subject(:game) {Game.new(mit, dave)}
 
   describe '#attack' do
@@ -29,5 +29,11 @@ subject(:game) {Game.new(mit, dave)}
     end
   end
 
+  describe 'check for winner' do
+    it 'check to see if we already have a winner' do
+      game.attack(dave)
+      expect(game.winner?).not_to eq nil
+    end
+  end
 
 end
