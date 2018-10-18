@@ -1,11 +1,15 @@
 
-<title><%= $player_1.name %> vs <%= $player_2.name %></title>
+<title><%= @game.players.first.name %> vs <%= @game.players.last.name %></title>
 
-<%= @game.current_player.name%>'s turn<p>
-  <table border="1">
-    <tr><td><b>Current</b></td><td><b>Opponent</b></td></tr>
-    <tr><td><%= @game.current_player.name%>: <%= @game.current_player.hit_points %>HP</td>
-    <td><%= @game.opponent_player.name%>: <%= @game.opponent_player.hit_points %>HP</td></tr>
+<%= @game.players.first.name%>'s turn<p>
+  <table border="1" width="25%">
+    <tr>
+      <td width="50%"><b>Current</b></td><td width="50%"><b>Opponent</b></td>
+    </tr>
+    <tr>
+      <td><%= @game.players.first.name%>: <%= @game.players.first.hit_points %>HP</td>
+      <td><%= @game.players.last.name%>: <%= @game.players.last.hit_points %>HP</td>
+    </tr>
   </table>
-  
+
 <a href="/attack">Attack</a>

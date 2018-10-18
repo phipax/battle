@@ -13,19 +13,19 @@ subject(:game) {Game.new(mit, dave)}
 
   describe "player name" do
     it 'expects a player name' do
-      expect(game.current_player.name).to eq mit.name
-      expect(game.opponent_player.name).to eq dave.name
+      expect(game.players.first.name).to eq mit.name
+      expect(game.players.last.name).to eq dave.name
     end
   end
 
   describe "swaps players" do
     it 'expects to swap the player names' do
       game.swap
-      expect(game.current_player.name).to eq "Dave"
+      expect(game.players.first.name).to eq "Dave"
     end
     it 'Returns the opponent' do
       game.swap
-      expect(game.opponent_player.name).to eq "Mit"
+      expect(game.players.last.name).to eq "Mit"
     end
   end
 

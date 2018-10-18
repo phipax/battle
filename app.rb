@@ -9,9 +9,9 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    $player_1 = Player.new(params[:player_1])
-    $player_2 = Player.new(params[:player_2])
-    $game = Game.new($player_1, $player_2)
+    player_1 = Player.new(params[:player_1])
+    player_2 = Player.new(params[:player_2])
+    $game = Game.new(player_1, player_2)
     redirect '/play'
   end
 
@@ -22,10 +22,9 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = $game
-    @game.attack(@game.opponent_player)
+    @game.attack(@game.players.last)
     @game.swap
     erb :attack
   end
-
   run! if app_file ==$0
 end
