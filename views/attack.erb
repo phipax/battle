@@ -8,9 +8,10 @@
     <td><%= @game.players.first.name%>: <%= @game.players.first.hit_points%>HP</td>
   </tr>
 </table>
-
+<% if !session[:_r] %> Deflected Attack <%end%>
 <% if @game.winner? %>
   <%= @game.winner?.name %> Wins! & <%= @game.loser %> lost!
+  <a href=''>Swap</a>
 <% else %>
 <a href='/play'>Swap</a>
 <%end %>

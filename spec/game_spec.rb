@@ -6,8 +6,9 @@ subject(:game) {Game.new(mit, dave)}
 
   describe '#attack' do
     it 'damages the player' do
-      expect(mit).to receive(:receive_damage)
-      game.attack(mit)
+      r = [true,false].sample
+      expect(mit).to receive(:receive_damage) if r
+      game.attack(mit,r)
     end
   end
 
@@ -31,7 +32,8 @@ subject(:game) {Game.new(mit, dave)}
 
   describe 'check for winner' do
     it 'check to see if we already have a winner' do
-      game.attack(dave)
+      r = [true,false].sample
+      game.attack(dave,r)
       expect(game.winner?).not_to eq nil
     end
   end

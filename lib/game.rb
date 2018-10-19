@@ -1,14 +1,16 @@
+require './lib/player'
 class Game
 
 attr_reader  :loser, :players
   def initialize(player_1, player_2)
-    @current_player = player_1
-    @opponent_player = player_2
+    @current_player,@opponent_player = player_1,player_2
     @players = [@current_player,@opponent_player]
   end
 
-  def attack(player1)
-    player1.receive_damage
+  def attack(player,r)
+  #  p "#{player} #{r}"
+   rand =  r.sample
+   player.receive_damage if rand
   end
 
   def swap
